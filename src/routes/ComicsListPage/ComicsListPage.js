@@ -8,11 +8,11 @@ import TokenService from '../../services/token-service'
 import WinnersApiService from '../../services/winners-api-service'
 import WinnersContext from '../../contexts/winnersContext'
 
-import './HomePage.css'
+import './ComicsListPage.css'
 import Footer from '../../components/Footer/Footer';
 
-class HomePage extends Component {
-	static contextType = WinnersContext
+class ComicsListPage extends Component {
+	// static contextType = WinnersContext
 
 	componentDidMount() {
 		// this.context.clearError();
@@ -24,11 +24,12 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<header>
+				<h1>Comics List Page</h1>
+				{/* <header>
 					<Nav />
 				</header>
 				<main>
-					<div className='HomePage'>
+					<div className='ComicsListPage'>
 
 						{TokenService.hasAuthToken()
 							? <WinnersList />
@@ -45,10 +46,10 @@ class HomePage extends Component {
 						</div>
 					</div>
 				</main>
-				<Footer />
+				<Footer /> */}
 			</div >
 		)
 	}
 }
 
-export default HomePage
+export default ComicsListPage
