@@ -6,7 +6,7 @@ import Nav from '../../components/Nav/Nav';
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
 
-import './ComicsListPage.css'
+// import './ComicsListPage.css'
 // import Footer from '../../components/Footer/Footer';
 
 class ComicsListPage extends Component {

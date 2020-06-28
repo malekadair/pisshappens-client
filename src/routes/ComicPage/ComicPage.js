@@ -6,7 +6,7 @@ import Welcome from '../../components/Welcome/Welcome';
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
 
-import './ComicPage.css'
+// import './ComicPage.css'
 // import Footer from '../../components/Footer/Footer';
 
 class ComicPage extends Component {
