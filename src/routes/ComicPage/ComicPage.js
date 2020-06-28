@@ -33,12 +33,7 @@ class ComicPage extends Component {
 							? <WinnersList />
 							: <Welcome />}
 
-						<Typical
-							steps={["Ready to submit your own guess?", 5000, "", 2000]}
-							loop={Infinity}
-							wrapper="h2"
-							className='ready'
-						/>
+					
 						<div>
 							<Link to='/guess' className='guess-button'>Guess!</Link>
 						</div>
