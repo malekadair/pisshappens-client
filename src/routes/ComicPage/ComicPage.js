@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Welcome from '../../components/Welcome/Welcome';
-import WinnersList from '../../components/WinnersList/WinnersList'
-import Nav from '../../components/Nav/Nav';
-import TokenService from '../../services/token-service'
-import WinnersApiService from '../../services/winners-api-service'
-import WinnersContext from '../../contexts/winnersContext'
+// import Nav from '../../components/Nav/Nav';
+// import TokenService from '../../services/token-service'
+// import WinnersApiService from '../../services/winners-api-service'
+// import WinnersContext from '../../contexts/winnersContext'
 
 import './ComicPage.css'
-import Footer from '../../components/Footer/Footer';
+// import Footer from '../../components/Footer/Footer';
 
 class ComicPage extends Component {
 	// static contextType = WinnersContext
@@ -23,7 +22,7 @@ class ComicPage extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Comic Page</h1>
+				<h2>Comic Page</h2>
 				{/* <header>
 					<Nav />
 				</header>

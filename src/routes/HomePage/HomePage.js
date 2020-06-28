@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Typical from 'react-typical'
-import Welcome from '../../components/Welcome/Welcome';
-import WinnersList from '../../components/WinnersList/WinnersList'
-import Nav from '../../components/Nav/Nav';
-import TokenService from '../../services/token-service'
-import WinnersApiService from '../../services/winners-api-service'
-import WinnersContext from '../../contexts/winnersContext'
+// import Welcome from '../../components/Welcome/Welcome';
+// import Nav from '../../components/Nav/Nav';
+// import TokenService from '../../services/token-service'
+// import WinnersApiService from '../../services/winners-api-service'
+// import WinnersContext from '../../contexts/winnersContext'
+// import Footer from '../../components/Footer/Footer'
 
 import './HomePage.css'
-import Footer from '../../components/Footer/Footer';
 
 class HomePage extends Component {
-	static contextType = WinnersContext
+	// static contextType = WinnersContext
 
 	componentDidMount() {
 		// this.context.clearError();
@@ -24,7 +22,8 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<header>
+				<h2>HomePage</h2>
+				{/* <header>
 					<Nav />
 				</header>
 				<main>
@@ -45,7 +44,7 @@ class HomePage extends Component {
 						</div>
 					</div>
 				</main>
-				<Footer />
+				<Footer /> */}
 			</div >
 		)
 	}
