@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import green_ball from '../../img/green_ball.png'
-import yellow_ball from '../../img/yellow_ball.png'
-import red_ball from '../../img/red_ball.png'
-import './Welcome.css'
+// import green_ball from '../../img/green_ball.png'
+// import yellow_ball from '../../img/yellow_ball.png'
+// import red_ball from '../../img/red_ball.png'
+// import './Welcome.css'
 
 class Welcome extends Component {
 	render() {
