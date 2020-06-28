@@ -1,0 +1,50 @@
+.HomePage {
+  font-size: 2em;
+  margin-top: 54px;
+}
+
+.ready {
+  font-size: 0.8em;
+  color: #003f5a;
+  text-align: center;
+  margin: 0 auto;
+  letter-spacing: 2px;
+}
+
+.guess-button {
+  color: #003f5a !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 5px 15px;
+  margin-top: 3rem;
+  border: 3px solid #003f5a !important;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.guess-button:hover {
+  background-color: #ebd9c8;
+  border-radius: 15px;
+  border-color: #003f5a !important;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+/* ----------- iPhone X ----------- */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .ready {
+    font-size: 0.5em;
+    letter-spacing: 1px;
+  }
+  .guess-button {
+    font-size: 0.5em;
+  }
+}

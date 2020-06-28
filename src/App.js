@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Switch, Route } from "react-router-dom";
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+import PrivateRoute from "../src/Utils/PrivateRoute"
+import PublicOnlyRoute from "../src/Utils/PublicOnlyRoute";
+
+class App extends Component {
+
+  render() {
+    return (
+      <div className='App'>
+        <h1>PissHappens</h1>
+        <Switch>
+          {/* <Route exact path='/' component={HomePage} />
+          <PublicOnlyRoute path='/login' component={LoginPage} />
+          <PublicOnlyRoute path='/register' component={RegisterPage} />
+          <PrivateRoute exact path='/guess' component={SubmitGuessPage} />
+          <PrivateRoute exact path='/guesslist' component={GuessListPage} /> */}
+        </Switch>
+      </div>
+    )
+  }
 }
 
 export default App;

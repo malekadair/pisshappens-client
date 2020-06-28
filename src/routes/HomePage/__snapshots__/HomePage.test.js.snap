@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component renders a HomePage by default 1`] = `undefined`;
+
+exports[`HomePage component renders the HomePage given props 1`] = `undefined`;

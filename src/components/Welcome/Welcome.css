@@ -1,0 +1,177 @@
+.winnerList,
+.guessList,
+.welcomeSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.welcome {
+  font-size: 2em;
+  color: #003f5a;
+}
+
+.cardContent {
+  color: white;
+  font-weight: 500px;
+  font-size: 0.75em;
+  padding-top: 10px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.box {
+  background-color: #003f5a;
+  height: 500px;
+  padding: 60px;
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  min-width: 350px;
+  max-width: 400px;
+}
+
+.box > img {
+  width: 125px;
+  height: 125px;
+}
+
+.one,
+.two,
+.three {
+  flex: 1;
+}
+
+/*--------i Pad -------*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .welcome {
+    height: 15vh;
+    font-size: 1.5em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  section {
+    flex-direction: row;
+    height: 20%;
+  }
+
+  .box {
+    padding: 50px;
+  }
+
+  .box > img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .cardContent {
+    font-size: 0.5em;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .welcome {
+    height: 15vh;
+    font-size: 1em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  section {
+    flex-direction: row;
+    height: 20%;
+  }
+  .box {
+    padding: 50px;
+    display: flex;
+  }
+
+  .box > img {
+    max-width: 50%;
+    height: auto;
+  }
+
+  .three > img {
+    width: 10vw;
+    height: auto;
+  }
+
+  .cardContent {
+    font-size: 0.5em;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    /* margin-left: 5px;
+        margin-right: 5px; */
+    /* text-align: center; */
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .main-nav {
+    max-width: 110vw;
+  }
+  .link {
+    font-size: 0.5em;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .main-nav {
+    max-width: 100vw;
+  }
+  .link {
+    font-size: 0.5em;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .welcome {
+    height: 15vh;
+    font-size: 1em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  section {
+    flex-direction: row;
+    height: 20%;
+  }
+
+  .box > img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .box {
+    padding: 50px;
+  }
+
+  .cardContent {
+    font-size: 0.5em;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    margin-left: 5px;
+    margin-right: 10px;
+    text-align: center;
+  }
+}

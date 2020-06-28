@@ -1,0 +1,92 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #003F5A;
+}
+
+.register {
+  padding: 16px;
+	height: auto;
+	margin: 0 auto;
+	width: 70%;
+}
+
+.register h2 {
+  padding-top: 35px;
+	padding-bottom: 10px;
+	font-size: 3em;
+	text-align: center;
+	letter-spacing: 0.2em;
+}
+
+.registerText {
+  font-size: 1em;
+  text-align: center;
+}
+
+.registerText p {
+  text-align: center;
+	letter-spacing: 0.1em;
+	margin-top: 5px;
+}
+
+.infocontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+}
+
+img.info {
+	width: 20%;
+	border-radius: 50%;
+}
+
+.registerItem {
+  padding: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  color: #F0F0F0;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  letter-spacing: 0.2em;
+}
+
+.registerbtn {
+  color: #571717 !important;
+	background: #ffffff;
+	font-size: 1em;
+	font-weight: 500;
+	padding: 10px 20px;
+	margin: 5px;
+	border: 3px solid #555 !important;
+	border-radius: 6px;
+	display: inline-block;
+	transition: all 0.3s ease 0s;
+}
+
+.form-link {
+	padding-top: 5px;
+}
+
+.error-register {
+  display: flex;
+  text-align: center;
+}
+
+.red-register {
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  color: red;
+  padding-top: 10px;
+}

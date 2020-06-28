@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component renders a LoginPage by default 1`] = `undefined`;
+
+exports[`LoginPage component renders the LoginPage given props 1`] = `undefined`;
