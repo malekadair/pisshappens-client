@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import AuthApiService from "../../services/auth-api-service";
-import TokenService from "../../services/token-service";
+// import AuthApiService from "../../services/auth-api-service";
+// import TokenService from "../../services/token-service";
 import { Link } from 'react-router-dom'
 import './LoginForm.css'
-import avatar from '../../img/avatar.svg'
-import UserContext from "../../contexts/userContext";
+// import avatar from '../../img/avatar.svg'
+// import UserContext from "../../contexts/userContext";
 
 class LoginForm extends Component {
 	// static contextType = UserContext

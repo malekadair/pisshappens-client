@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.css'
-import TokenService from '../../services/token-service'
+// import TokenService from '../../services/token-service'
 
 
 class Nav extends Component {
     handleLogoutClick = () => {
-        TokenService.clearAuthToken();
+        // TokenService.clearAuthToken();
     };
 
     renderLogout() {
@@ -30,10 +30,10 @@ class Nav extends Component {
         return (
             <div>
                 <nav className='zone sticky main-nav'>
-                    <Link className='right  siteTitle' to='/'>GottaLotto</Link>
+                    {/* <Link className='right  siteTitle' to='/'>GottaLotto</Link>
                     {TokenService.hasAuthToken()
                         ? this.renderLogout()
-                        : this.renderLogin()}
+                        : this.renderLogin()} */}
                 </nav>
             </div >
         )
