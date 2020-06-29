@@ -22,13 +22,16 @@ class ComicPage extends Component {
 	}
 
 	render() {
+		const { comicId } = this.props.match.params;
+		const comicUrl = "www.pisshappens.io/#" + this.props.match.url
 		return (
 			<div>
 				<header>
 					<Nav />
 				</header>
 				<main>
-					<h2>Comic Page</h2>
+					<h2>Comic #{comicId}</h2>
+					<a href={comicUrl} target='_blank'>{comicUrl}</a>
 				</main>
 				<Footer />
 				{/* <header>

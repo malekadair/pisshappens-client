@@ -21,7 +21,7 @@ class App extends Component {
           {/* <PublicOnlyRoute path='/login' component={LoginPage} /> */}
           {/* <PublicOnlyRoute path='/register' component={RegisterPage} /> */}
           <Route exact path='/comics' component={ComicsListPage} />
-          <Route path='/comics/:comicid' component={ComicPage} />
+          <Route path='/comics/:comicId' component={ComicPage} />
         </Switch>
       </div>
     )
