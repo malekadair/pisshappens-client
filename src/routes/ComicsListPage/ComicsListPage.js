@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Welcome from '../../components/Welcome/Welcome';
 import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
@@ -22,7 +23,13 @@ class ComicsListPage extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Comics List Page</h2>
+				<header>
+					<Nav />
+				</header>
+				<main>
+					<h2>Comics List Page</h2>
+				</main>
+				<Footer />
 				{/* <header>
 					<Nav />
 				</header>

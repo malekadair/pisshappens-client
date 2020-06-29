@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 // import Welcome from '../../components/Welcome/Welcome';
-// import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
 // import Footer from '../../components/Footer/Footer'
 
 import './HomePage.css'
+import Footer from '../../components/Footer/Footer';
 
 class HomePage extends Component {
 	// static contextType = WinnersContext
@@ -22,7 +23,13 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<h2>HomePage</h2>
+				<header>
+					<Nav />
+				</header>
+				<main>
+					<h2>HomePage</h2>
+				</main>
+				<Footer />
 				{/* <header>
 					<Nav />
 				</header>

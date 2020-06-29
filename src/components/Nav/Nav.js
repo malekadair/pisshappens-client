@@ -28,14 +28,10 @@ class Nav extends Component {
     }
     render() {
         return (
-            <div>
-                <nav className='zone sticky main-nav'>
-                    {/* <Link className='right  siteTitle' to='/'>GottaLotto</Link>
-                    {TokenService.hasAuthToken()
-                        ? this.renderLogout()
-                        : this.renderLogin()} */}
-                </nav>
-            </div >
+            <nav className='zone sticky main-nav'>
+                <Link className='right  siteTitle' to='/'>PissHappens</Link>
+                <Link className='comics' to='/comics'>See Comics</Link>
+            </nav>
         )
     }
 }
