@@ -32,7 +32,7 @@ const ComicPage = (props) => {
 		document.execCommand("copy");
 	}
 	const { comicId } = props.match.params;
-	const comicUrl = "www.pisshappens.io/#" + props.match.url
+	const comicUrl = props.match.url
 	return (
 		<div>
 			<header>
