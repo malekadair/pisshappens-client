@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Welcome from '../../components/Welcome/Welcome';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
-// import Nav from '../../components/Nav/Nav';
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
@@ -11,30 +10,44 @@ import Footer from '../../components/Footer/Footer';
 // import './ComicPage.css'
 // import Footer from '../../components/Footer/Footer';
 
-class ComicPage extends Component {
+const ComicPage = (props) => {
 	// static contextType = WinnersContext
 
-	componentDidMount() {
-		// this.context.clearError();
-		// WinnersApiService.getAllWinners()
-		// 	.then(this.context.setWinners)
-		// 	.catch(this.context.setError)
-	}
+	// componentDidMount() {
+	// 	// this.context.clearError();
+	// 	// WinnersApiService.getAllWinners()
+	// 	// 	.then(this.context.setWinners)
+	// 	// 	.catch(this.context.setError)
+	// }
 
-	render() {
-		const { comicId } = this.props.match.params;
-		const comicUrl = "www.pisshappens.io/#" + this.props.match.url
-		return (
-			<div>
-				<header>
-					<Nav />
-				</header>
-				<main>
-					<h2>Comic #{comicId}</h2>
-					<a href={comicUrl} target='_blank'>{comicUrl}</a>
-				</main>
-				<Footer />
-				{/* <header>
+	const copyUrl = () => {
+		console.log('clicked')
+		const copyText = document.querySelector('#copyUrl');
+
+		/* Select the text field */
+		copyText.select();
+		copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+		/* Copy the text inside the text field */
+		document.execCommand("copy");
+	}
+	const { comicId } = props.match.params;
+	const comicUrl = "www.pisshappens.io/#" + props.match.url
+	return (
+		<div>
+			<header>
+				<Nav />
+			</header>
+			<main>
+				<h2>Comic #{comicId}</h2>
+				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
+
+				<input id='copyUrl' type='text' value={comicUrl}></input>
+				<button onClick={() => copyUrl()}>Copy to clipboard</button>
+
+			</main>
+			<Footer />
+			{/* <header>
 					<Nav />
 				</header>
 				<main>
@@ -51,9 +64,9 @@ class ComicPage extends Component {
 					</div>
 				</main>
 				<Footer /> */}
-			</div >
-		)
-	}
+		</div >
+	)
 }
+
 
 export default ComicPage
