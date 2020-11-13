@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Welcome from '../../components/Welcome/Welcome';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
+import CopyUrl from '../../components/CopyUrl/CopyUrl';
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
@@ -32,7 +33,7 @@ const ComicPage = (props) => {
 		document.execCommand("copy");
 	}
 	const { comicId } = props.match.params;
-	const comicUrl = props.match.url
+	const comicUrl = "www.pisshappens.io/#" + props.match.url
 	return (
 		<div>
 			<header>
@@ -42,9 +43,7 @@ const ComicPage = (props) => {
 				<h2>Comic #{comicId}</h2>
 				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
 
-				<input id='copyUrl' type='text' value={comicUrl}></input>
-				<button onClick={() => copyUrl()}>Copy to clipboard</button>
-
+				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
 			</main>
 			<Footer />
 			{/* <header>
