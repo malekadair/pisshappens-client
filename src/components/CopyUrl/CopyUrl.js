@@ -4,10 +4,10 @@ function CopyUrl(props) {
 	const { comicUrl, copyUrl } = props
 	console.log('asdfa', props)
 	return (
-		<div>
+		<form onSubmit={(e) => copyUrl(e)}>
 			<input id='copyUrl' type='text' defaultValue={comicUrl}></input>
-			<button onClick={() => copyUrl()}>Copy to clipboard</button>
-		</div>
+			<button >Copy to clipboard</button>
+		</form>
 	)
 }
 

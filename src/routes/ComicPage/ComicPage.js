@@ -21,7 +21,8 @@ const ComicPage = (props) => {
 	// 	// 	.catch(this.context.setError)
 	// }
 
-	const copyUrl = () => {
+	const copyUrl = (e) => {
+		e.preventDefault()
 		console.log('clicked')
 		const copyText = document.querySelector('#copyUrl');
 
