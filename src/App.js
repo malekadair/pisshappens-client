@@ -13,23 +13,10 @@ import ComicPage from './routes/ComicPage/ComicPage';
 
 const App = () => {
   // const [title, setTitle] = useState('blah')
-  const [comics, setComics] = useState({});
-  console.log('pre:', comics)
-  useEffect(() => {
-    const fetchComics = async () => {
-      const response = await axios(
-        'http://localhost:8000/api/comics',
-      );
 
-      setComics(response.data);
-    }
-    console.log('post', comics)
-    fetchComics()
-  }, []);
 
   return (
     <div className='App'>
-      <h1>PissHappens</h1>
       <Switch>
         <Route exact path='/' component={HomePage} />
         {/* <PublicOnlyRoute path='/login' component={LoginPage} /> */}

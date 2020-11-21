@@ -4,12 +4,12 @@ import './Nav.css'
 // import TokenService from '../../services/token-service'
 
 
-class Nav extends Component {
-    handleLogoutClick = () => {
+const Nav = () => {
+    const handleLogoutClick = () => {
         // TokenService.clearAuthToken();
     };
 
-    renderLogout() {
+    const renderLogout = () => {
         return (
             <div>
                 <Link className="link" onClick={this.handleLogoutClick} to="/">
@@ -18,7 +18,7 @@ class Nav extends Component {
             </div>
         );
     }
-    renderLogin() {
+    const renderLogin = () => {
         return (
             <div>
                 <Link className='link' to='/login'>Login</Link>
@@ -26,14 +26,12 @@ class Nav extends Component {
             </div>
         );
     }
-    render() {
-        return (
-            <nav className='zone sticky main-nav'>
-                <Link className='right  siteTitle' to='/'>PissHappens</Link>
-                <Link className='comics' to='/comics'>See Comics</Link>
-            </nav>
-        )
-    }
+    return (
+        <nav className='zone sticky main-nav'>
+            <Link className='right  siteTitle' to='/'>PissHappens</Link>
+            <Link className='comics' to='/comics'>See Comics</Link>
+        </nav>
+    )
 }
 
 export default Nav

@@ -20,7 +20,6 @@ const ComicPage = (props) => {
 	// 	// 	.then(this.context.setWinners)
 	// 	// 	.catch(this.context.setError)
 	// }
-
 	const copyUrl = (e) => {
 		e.preventDefault()
 		console.log('clicked')
@@ -33,6 +32,7 @@ const ComicPage = (props) => {
 		/* Copy the text inside the text field */
 		document.execCommand("copy");
 	}
+
 	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
 	return (
@@ -43,27 +43,9 @@ const ComicPage = (props) => {
 			<main>
 				<h2>Comic #{comicId}</h2>
 				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
-
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
 			</main>
 			<Footer />
-			{/* <header>
-					<Nav />
-				</header>
-				<main>
-					<div className='ComicPage'>
-
-						{TokenService.hasAuthToken()
-							? <WinnersList />
-							: <Welcome />}
-
-					
-						<div>
-							<Link to='/guess' className='guess-button'>Guess!</Link>
-						</div>
-					</div>
-				</main>
-				<Footer /> */}
 		</div >
 	)
 }
