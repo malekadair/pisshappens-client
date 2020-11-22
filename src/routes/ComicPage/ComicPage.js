@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Welcome from '../../components/Welcome/Welcome';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import CopyUrl from '../../components/CopyUrl/CopyUrl';
+import axios from 'axios';
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
@@ -12,14 +13,21 @@ import CopyUrl from '../../components/CopyUrl/CopyUrl';
 // import Footer from '../../components/Footer/Footer';
 
 const ComicPage = (props) => {
-	// static contextType = WinnersContext
 
-	// componentDidMount() {
-	// 	// this.context.clearError();
-	// 	// WinnersApiService.getAllWinners()
-	// 	// 	.then(this.context.setWinners)
-	// 	// 	.catch(this.context.setError)
-	// }
+	const [comic, setComic] = useState([]);
+	useEffect(() => {
+		console.log(props.match.params)
+		const { comicId } = props.match.params
+
+		const fetchComic = async () => {
+			const response = await axios(
+				`http://localhost:8000/api/comics/${comicId}`,
+			);
+
+			setComic(response.data);
+		}
+		fetchComic()
+	}, []);
 	const copyUrl = (e) => {
 		e.preventDefault()
 		console.log('clicked')
