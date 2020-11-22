@@ -49,9 +49,29 @@ const ComicPage = (props) => {
 				<Nav />
 			</header>
 			<main>
-				<h2>Comic #{comicId}</h2>
+				<h2>{comic.title}</h2>
+				<div className="comicItem">
+					<p>Comic #{comic.id}</p>
+					<p>Title: {comic.title}</p>
+					<p>Description: {comic.description}</p>
+					<p>Added on: {comic.date_created}</p>
+					{/* <p>Comic #{props.comic.id}</p> */}
+				</div>
 				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
+				<section className='commentsSection'>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+					<p>COMMENT</p>
+				</section>
 			</main>
 			<Footer />
 		</div >
