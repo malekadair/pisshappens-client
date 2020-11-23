@@ -4,11 +4,14 @@ import { HashRouter as Router } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { ComicsProvider } from './contexts/ComicsContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ComicsProvider>
+        <App />
+      </ComicsProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

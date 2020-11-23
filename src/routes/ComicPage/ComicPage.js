@@ -5,6 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import CopyUrl from '../../components/CopyUrl/CopyUrl';
 import axios from 'axios';
+import { useComics } from '../../contexts/ComicsContext'
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
@@ -15,8 +16,12 @@ import axios from 'axios';
 const ComicPage = (props) => {
 
 	const [comic, setComic] = useState([]);
+	const { comics, setComics, error, setError, clearError, clearComics } = useComics()
+
 	useEffect(() => {
-		console.log(props.match.params)
+		console.log('context motherfuckers', comics)
+		setComics('im like so happy yo.')
+		console.log('new comics', comics)
 		const { comicId } = props.match.params
 
 		const fetchComic = async () => {
@@ -25,6 +30,7 @@ const ComicPage = (props) => {
 			);
 
 			setComic(response.data);
+			setComics(response.data)
 		}
 		fetchComic()
 	}, []);
