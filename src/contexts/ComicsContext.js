@@ -6,17 +6,17 @@ const ComicsContext = React.createContext({
 	error: null,
 	setError: () => { },
 	clearError: () => { },
-	setComics: () => { },
-	clearComics: () => { },
+	setComicsList: () => { },
+	clearComicsList: () => { },
 	// setReviews: () => { },
 	// addReview: () => { }
 })
 
-export function useComics() {
+export function useComicsContext() {
 	return useContext(ComicsContext)
 }
 export function ComicsProvider({ children }) {
-	const [comics, setComics] = useState([{ 'color': 'blue', 'name': 'gray', 'price': 1 }])
+	const [comicsList, setComicsList] = useState([{ 'color': 'blue', 'name': 'gray', 'price': 1 }])
 	const [error, setError] = useState(false)
 
 
@@ -32,17 +32,17 @@ export function ComicsProvider({ children }) {
 	// 	setComics({ comicsList });
 	// };
 
-	const clearComics = () => {
-		setComics({});
+	const clearComicsList = () => {
+		setComicsList({});
 	};
 	const value = {
-		comics: comics,
-		setComics, setComics,
+		comicsList: comicsList,
+		setComicsList, setComicsList,
 		error: error,
 		setError: setError,
 		clearError: clearError,
 		// setComicsList: setComicsList,
-		clearComics: clearComics
+		clearComicsList: clearComicsList
 	};
 	return (
 		<ComicsContext.Provider value={value}>

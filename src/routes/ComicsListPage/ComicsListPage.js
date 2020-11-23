@@ -7,9 +7,20 @@ import Footer from '../../components/Footer/Footer';
 import dummyList from '../../dummy'
 import Comic from '../../components/Comic/Comic';
 import axios from 'axios';
+import { useComicsContext } from '../../contexts/ComicsContext'
+
 
 const ComicsListPage = (props) => {
 	const [comics, setComics] = useState([]);
+	const {
+		comicsList,
+		setComicsList,
+		error,
+		setError,
+		clearErrorList,
+		clearComicsList
+	} = useComicsContext()
+
 	useEffect(() => {
 		const fetchComics = async () => {
 			const response = await axios(
@@ -17,6 +28,7 @@ const ComicsListPage = (props) => {
 			);
 
 			setComics(response.data);
+			setComicsList(response.data)
 		}
 		fetchComics()
 	}, []);
