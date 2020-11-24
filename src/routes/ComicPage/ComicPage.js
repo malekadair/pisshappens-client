@@ -6,6 +6,9 @@ import Footer from '../../components/Footer/Footer';
 import CopyUrl from '../../components/CopyUrl/CopyUrl';
 import axios from 'axios';
 import config from '../../config'
+import { useComicContext } from '../../contexts/ComicContext'
+import { useCommentContext } from '../../contexts/ComicContext'
+
 // import { useComics } from '../../contexts/ComicsContext'
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
@@ -22,12 +25,30 @@ const ComicPage = (props) => {
 
 	useEffect(() => {
 		const { comicId } = props.match.params
+		const {
+			comicData,
+			setComicData,
+			error: comicError,
+			setError: setComicError,
+			clearErrorList,
+			clearComicData
+		} = useComicContext()
+		const {
+			commentList,
+			setCommentList,
+			error: commentError,
+			setError: setCommentError,
+			clearErrorList,
+			clearCommentList
+		} = useCommentContext()
+
 		const fetchComic = async () => {
 			const response = await axios(
 				`${config.API_ENDPOINT}/comics/${comicId}`
 			);
 
 			setComic(response.data);
+			setComicData(response.data)
 			console.log('comic', response.data)
 
 			// setComics(response.data)
@@ -38,7 +59,7 @@ const ComicPage = (props) => {
 			);
 
 			setComments(response.data);
-			console.log('comments', response.data)
+			setCommentList(response.data)
 
 			// setComics(response.data)
 		}
