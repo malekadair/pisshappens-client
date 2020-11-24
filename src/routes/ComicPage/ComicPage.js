@@ -18,6 +18,7 @@ const ComicPage = (props) => {
 
 	const [comic, setComic] = useState([]);
 	// const { comics, setComics, error, setError, clearError, clearComics } = useComics()
+	const [comments, setComments] = useState([])
 
 	useEffect(() => {
 		const { comicId } = props.match.params
@@ -31,12 +32,23 @@ const ComicPage = (props) => {
 
 			// setComics(response.data)
 		}
+		const fetchComments = async () => {
+			const response = await axios(
+				`${config.API_ENDPOINT}/comments/comic/${comicId}`
+			);
+
+			setComments(response.data);
+			console.log('comments', response.data)
+
+			// setComics(response.data)
+		}
 		// const fetchBFComic = async () => {
 		// 	const BFResponse = await axios(
 		// 		`${config.BF_API_ENDPOINT}/schwindt/pisshappens/comics/attachments`
 		// 	)
 		// }
 		fetchComic()
+		fetchComments()
 
 		// fetchBFComic()
 	}, []);
@@ -58,6 +70,9 @@ const ComicPage = (props) => {
 		}
 		return allFrames.map((frame, i) => <img src={frame} key={i} />)
 
+	}
+	const renderComments = () => {
+		return comments.map(comment => <p key={comment.id}>{comment.comment}</p>)
 	}
 	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
@@ -81,17 +96,7 @@ const ComicPage = (props) => {
 				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
 				<section className='commentsSection'>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
-					<p>COMMENT</p>
+					{renderComments()}
 				</section>
 			</main>
 			<Footer />
