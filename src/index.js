@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ComicsProvider } from './contexts/ComicsContext'
 import { CommentsProvider } from './contexts/CommentsContext'
-import { ComicProvider } from './contexts/ComicsContext'
+import { ComicProvider } from './contexts/ComicContext'
 
 
 ReactDOM.render(

@@ -7,7 +7,7 @@ import CopyUrl from '../../components/CopyUrl/CopyUrl';
 import axios from 'axios';
 import config from '../../config'
 import { useComicContext } from '../../contexts/ComicContext'
-import { useCommentContext } from '../../contexts/ComicContext'
+import { useCommentsContext } from '../../contexts/CommentsContext'
 
 // import { useComics } from '../../contexts/ComicsContext'
 // import TokenService from '../../services/token-service'
@@ -22,25 +22,25 @@ const ComicPage = (props) => {
 	const [comic, setComic] = useState([]);
 	// const { comics, setComics, error, setError, clearError, clearComics } = useComics()
 	const [comments, setComments] = useState([])
-
+	const {
+		comicData,
+		setComicData,
+		error: comicError,
+		setError: setComicError,
+		clearError: clearComicError,
+		clearComicData
+	} = useComicContext()
+	const {
+		commentList,
+		setCommentList,
+		error: commentError,
+		setError: setCommentError,
+		clearError: clearCommentError,
+		clearCommentList
+	} = useCommentsContext()
 	useEffect(() => {
 		const { comicId } = props.match.params
-		const {
-			comicData,
-			setComicData,
-			error: comicError,
-			setError: setComicError,
-			clearErrorList,
-			clearComicData
-		} = useComicContext()
-		const {
-			commentList,
-			setCommentList,
-			error: commentError,
-			setError: setCommentError,
-			clearErrorList,
-			clearCommentList
-		} = useCommentContext()
+
 
 		const fetchComic = async () => {
 			const response = await axios(
