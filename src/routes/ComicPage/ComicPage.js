@@ -5,6 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import CopyUrl from '../../components/CopyUrl/CopyUrl';
 import axios from 'axios';
+import config from '../../config'
 // import { useComics } from '../../contexts/ComicsContext'
 // import TokenService from '../../services/token-service'
 // import WinnersApiService from '../../services/winners-api-service'
@@ -22,7 +23,7 @@ const ComicPage = (props) => {
 		const { comicId } = props.match.params
 		const fetchComic = async () => {
 			const response = await axios(
-				`http://localhost:8000/api/comics/${comicId}`,
+				`${config.API_ENDPOINT}/comics/${comicId}`
 			);
 
 			setComic(response.data);

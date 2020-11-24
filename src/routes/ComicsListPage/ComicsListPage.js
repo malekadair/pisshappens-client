@@ -8,7 +8,8 @@ import dummyList from '../../dummy'
 import Comic from '../../components/Comic/Comic';
 import axios from 'axios';
 import { useComicsContext } from '../../contexts/ComicsContext'
-
+import ComicsApiService from '../../services/comics-api-service'
+import config from '../../config'
 
 const ComicsListPage = (props) => {
 	const [comics, setComics] = useState([]);
@@ -24,7 +25,7 @@ const ComicsListPage = (props) => {
 	useEffect(() => {
 		const fetchComics = async () => {
 			const response = await axios(
-				'http://localhost:8000/api/comics',
+				`${config.API_ENDPOINT}/comics`
 			);
 
 			setComics(response.data);
@@ -33,9 +34,20 @@ const ComicsListPage = (props) => {
 		fetchComics()
 	}, []);
 
+	// useEffect(() => {
+	// 	const fetchComics = async () => {
+	// 		const response = await ComicsApiService.getAllComics()
+
+	// 		setComics(response.data);
+	// 		setComicsList(response.data)
+	// 	}
+	// 	fetchComics()
+	// }, []);
+
 	const renderComics = () => {
 		return comics.map(comic => <Comic key={comic.id} comic={comic} />)
 	}
+
 	return (
 		<div>
 			<header>
@@ -44,7 +56,7 @@ const ComicsListPage = (props) => {
 			<main>
 				<h2>Comics List Page</h2>
 				{renderComics()}
-				{comics.map(comic => { <Comic key={comic.id} comic={comic} /> })}
+				{/* {comics.map(comic => { return (<Comic key={comic.id} comic={comic} />) })} */}
 			</main>
 			<Footer />
 			{/* <header>

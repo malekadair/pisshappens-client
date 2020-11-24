@@ -1,13 +1,10 @@
 import config from '../config'
-import TokenService from '../services/token-service'
+// import TokenService from '../services/token-service'
+// import axios from 'axios'
 
-const GuesssesApiService = {
-	getAllGuesses() {
-		return fetch(`${config.API_ENDPOINT}/guesses`, {
-			headers: {
-				'authorization': `bearer ${TokenService.getAuthToken()}`,
-			},
-		})
+const ComicsApiService = {
+	getAllComics() {
+		return fetch(`${config.API_ENDPOINT}/comics`)
 			.then(res =>
 				(!res.ok)
 					? res.json().then(e => Promise.reject(e))
@@ -67,4 +64,4 @@ const GuesssesApiService = {
 	}
 }
 
-export default GuesssesApiService
+export default ComicsApiService
