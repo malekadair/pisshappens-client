@@ -51,10 +51,18 @@ const ComicPage = (props) => {
 		/* Copy the text inside the text field */
 		document.execCommand("copy");
 	}
+	const renderComicFrames = () => {
+		const allFrames = []
+		for (let i = 1; i <= comic.frames; i++) {
+			allFrames.push(`${comic_url}?position=${i}`)
+		}
+		return allFrames.map((frame, i) => <img src={frame} key={i} />)
 
+	}
 	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
 	const { comic_url } = comic
+
 	return (
 		<div>
 			<header>
@@ -68,6 +76,7 @@ const ComicPage = (props) => {
 					<p>Description: {comic.description}</p>
 					<p>Added on: {comic.date_created}</p>
 					{/* <p>Comic #{props.comic.id}</p> */}
+					{renderComicFrames()}
 				</div>
 				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
