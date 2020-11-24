@@ -5,12 +5,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ComicsProvider } from './contexts/ComicsContext'
+import { CommentsProvider } from './contexts/CommentsContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ComicsProvider>
-        <App />
+        <CommentsProvider>
+          <App />
+        </CommentsProvider>
       </ComicsProvider>
     </Router>
   </React.StrictMode>,
