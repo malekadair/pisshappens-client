@@ -1,5 +1,4 @@
-import React, { useContext, useState, Children } from 'react'
-import { blue, gray } from 'color-name';
+import React, { useContext, useState } from 'react'
 
 const ComicsContext = React.createContext({
 	comicsList: [],
@@ -25,7 +24,7 @@ export function ComicsProvider({ children }) {
 	// };
 
 	const clearError = () => {
-		setState({ error: null });
+		setError({ error: null });
 	};
 
 	// const setComicsList = comicsList => {
@@ -37,11 +36,10 @@ export function ComicsProvider({ children }) {
 	};
 	const value = {
 		comicsList: comicsList,
-		setComicsList, setComicsList,
+		setComicsList: setComicsList,
 		error: error,
 		setError: setError,
 		clearError: clearError,
-		// setComicsList: setComicsList,
 		clearComicsList: clearComicsList
 	};
 	return (

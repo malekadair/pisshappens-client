@@ -27,13 +27,21 @@ const ComicPage = (props) => {
 			);
 
 			setComic(response.data);
+			console.log('comic', response.data)
+
 			// setComics(response.data)
 		}
+		// const fetchBFComic = async () => {
+		// 	const BFResponse = await axios(
+		// 		`${config.BF_API_ENDPOINT}/schwindt/pisshappens/comics/attachments`
+		// 	)
+		// }
 		fetchComic()
+
+		// fetchBFComic()
 	}, []);
 	const copyUrl = (e) => {
 		e.preventDefault()
-		console.log('clicked')
 		const copyText = document.querySelector('#copyUrl');
 
 		/* Select the text field */
