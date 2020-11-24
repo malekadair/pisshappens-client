@@ -54,6 +54,7 @@ const ComicPage = (props) => {
 
 	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
+	const { comic_url } = comic
 	return (
 		<div>
 			<header>
