@@ -6,14 +6,18 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ComicsProvider } from './contexts/ComicsContext'
 import { CommentsProvider } from './contexts/CommentsContext'
+import { ComicProvider } from './contexts/ComicsContext'
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ComicsProvider>
-        <CommentsProvider>
-          <App />
-        </CommentsProvider>
+        <ComicProvider>
+          <CommentsProvider>
+            <App />
+          </CommentsProvider>
+        </ComicProvider>
       </ComicsProvider>
     </Router>
   </React.StrictMode>,
