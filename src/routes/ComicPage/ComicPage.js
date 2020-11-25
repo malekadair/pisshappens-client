@@ -22,6 +22,7 @@ const ComicPage = (props) => {
 	const [comic, setComic] = useState([]);
 	// const { comics, setComics, error, setError, clearError, clearComics } = useComics()
 	const [comments, setComments] = useState([])
+	const [commentText, setCommentText] = useState([])
 	const {
 		comicData,
 		setComicData,
@@ -95,6 +96,19 @@ const ComicPage = (props) => {
 	const renderComments = () => {
 		return comments.map(comment => <p key={comment.id}>{comment.full_name} said: {comment.comment}</p>)
 	}
+	// const handleChange = event => {
+	// 	const { name, value, type, checked } = event.target;
+	// 	type === "checkbox"
+	// 		? setCommentText({ [name]: checked })
+	// 		: this.setState({ [name]: value });
+	// };
+	handleSubmit = (ev, data) => {
+		ev.preventDefault();
+		console.log(`form submitted with this data: ${ev}`)
+		// GuessesApiService.postGuess(data)
+		// 	.then(this.props.onSubmitSuccess())
+		// 	.catch(this.context.setError);
+	};
 	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
 	const { comic_url } = comic
@@ -118,6 +132,10 @@ const ComicPage = (props) => {
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
 				<section className='commentsSection'>
 					{renderComments()}
+					<form onSubmit={handleSubmit} >
+						<textarea value={commentText} onChange={setCommentText(this.value)} />
+						<button>Post Comment</button>
+					</form>
 				</section>
 			</main>
 			<Footer />
