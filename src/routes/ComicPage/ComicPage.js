@@ -31,8 +31,8 @@ const ComicPage = (props) => {
 		clearComicData
 	} = useComicContext()
 	const {
-		commentList,
-		setCommentList,
+		commentsList,
+		setCommentsList,
 		error: commentError,
 		setError: setCommentError,
 		clearError: clearCommentError,
@@ -59,7 +59,7 @@ const ComicPage = (props) => {
 			);
 
 			setComments(response.data);
-			setCommentList(response.data)
+			setCommentsList(response.data)
 
 			// setComics(response.data)
 		}
@@ -93,7 +93,7 @@ const ComicPage = (props) => {
 
 	}
 	const renderComments = () => {
-		return comments.map(comment => <p key={comment.id}>{comment.comment}</p>)
+		return comments.map(comment => <p key={comment.id}>{comment.full_name} said: {comment.comment}</p>)
 	}
 	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
