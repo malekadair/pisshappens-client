@@ -23,9 +23,7 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<header>
-					<Nav />
-				</header>
+				<Nav />
 				<main>
 					<h2>HomePage</h2>
 				</main>

@@ -50,9 +50,7 @@ const ComicsListPage = (props) => {
 
 	return (
 		<div>
-			<header>
-				<Nav />
-			</header>
+			<Nav />
 			<main>
 				<h2>Comics List Page</h2>
 				{renderComics()}

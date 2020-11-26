@@ -35,9 +35,8 @@ class LoginPage extends Component {
 
         return (
             <section className='LoginPage'>
-                {/* <header>
+                {/* 
                     <Nav />
-                </header>
                 {this.state.loggedIn ? <Redirect to='/' /> : <LoginForm
                     onLoginSuccess={this.setLoggedIn} />}
                 <Footer /> */}

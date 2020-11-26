@@ -18,9 +18,7 @@ class RegisterPage extends Component {
 	render() {
 		return (
 			<section className='RegistrationPage'>
-				<header>
-					<Nav />
-				</header>
+				<Nav />
 				<RegistrationForm
 					onRegistrationSuccess={this.handleRegistrationSuccess} />
 				<Footer />

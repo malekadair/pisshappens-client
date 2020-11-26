@@ -22,7 +22,7 @@ const ComicPage = (props) => {
 	const [comic, setComic] = useState([]);
 	// const { comics, setComics, error, setError, clearError, clearComics } = useComics()
 	const [comments, setComments] = useState([])
-	const [commentText, setCommentText] = useState([])
+	const [commentText, setCommentText] = useState('')
 	const {
 		comicData,
 		setComicData,
@@ -102,9 +102,9 @@ const ComicPage = (props) => {
 	// 		? setCommentText({ [name]: checked })
 	// 		: this.setState({ [name]: value });
 	// };
-	handleSubmit = (ev, data) => {
+	const handleSubmit = (ev, text) => {
 		ev.preventDefault();
-		console.log(`form submitted with this data: ${ev}`)
+		console.log(`form submitted with this data: ${text}`)
 		// GuessesApiService.postGuess(data)
 		// 	.then(this.props.onSubmitSuccess())
 		// 	.catch(this.context.setError);
@@ -115,9 +115,7 @@ const ComicPage = (props) => {
 
 	return (
 		<div>
-			<header>
-				<Nav />
-			</header>
+			<Nav />
 			<main>
 				<h2>{comic.title}</h2>
 				<div className="comicItem">
@@ -132,8 +130,8 @@ const ComicPage = (props) => {
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
 				<section className='commentsSection'>
 					{renderComments()}
-					<form onSubmit={handleSubmit} >
-						<textarea value={commentText} onChange={setCommentText(this.value)} />
+					<form onSubmit={e => handleSubmit(e, commentText)} >
+						<input type='text' value={commentText} onChange={(e) => setCommentText(e.target.value)} />
 						<button>Post Comment</button>
 					</form>
 				</section>

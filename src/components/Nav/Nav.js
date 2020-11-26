@@ -11,11 +11,11 @@ const Nav = () => {
 
     const renderLogout = () => {
         return (
-            <div>
+            <header>
                 <Link className="link" onClick={this.handleLogoutClick} to="/">
                     Logout
                 </Link>
-            </div>
+            </header>
         );
     }
     const renderLogin = () => {
