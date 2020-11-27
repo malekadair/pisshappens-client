@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, Component } from 'react'
 import { Link } from 'react-router-dom'
 import Welcome from '../../components/Welcome/Welcome';
 import Nav from '../../components/Nav/Nav';
@@ -23,6 +23,7 @@ const ComicPage = (props) => {
 	// const { comics, setComics, error, setError, clearError, clearComics } = useComics()
 	const [comments, setComments] = useState([])
 	const [commentText, setCommentText] = useState('')
+	const [rando, setRando] = useState('')
 	const {
 		comicData,
 		setComicData,
@@ -73,9 +74,9 @@ const ComicPage = (props) => {
 
 		// fetchBFComic()
 	}, []);
-	const postComment = (data) => {
-		const { comic_id, user_id, comment } = data
-		return fetch(`${config.API_ENDPOINT}/comic/comments`, {
+	const postComment = async (data) => {
+		const { comicId: comic_id, madeUpUserId: user_id, text: comment } = data
+		return await fetch(`${config.API_ENDPOINT}/comments`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -127,6 +128,10 @@ const ComicPage = (props) => {
 		const madeUpUserId = 1
 		const data = { madeUpUserId, comicId, text }
 		postComment(data)
+			.then(newComment => {
+				console.log('newComment', newComment)
+				setComments(prevState => [...prevState, ...newComment])
+			})
 		setCommentText('')
 		// GuessesApiService.postGuess(data)
 		// 	.then(this.props.onSubmitSuccess())
@@ -152,9 +157,10 @@ const ComicPage = (props) => {
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />
 				<section className='commentsSection'>
 					{renderComments()}
+					{/* {comments.map((comment, i) => <p key={i}>{comment.full_name} said: {comment.comment}</p>)} */}
 					<form onSubmit={e => handleSubmit(e, commentText)} >
-						<input type='text' value={commentText} onChange={(e) => setCommentText(e.target.value)} />
-						<button>Post Comment</button>
+						<input type='text' placeholder='Write a comment' value={commentText} onChange={(e) => setCommentText(e.target.value)} />
+						<button disabled={!commentText}>Post Comment</button>
 					</form>
 				</section>
 			</main>
