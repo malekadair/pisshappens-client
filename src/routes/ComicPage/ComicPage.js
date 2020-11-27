@@ -39,9 +39,9 @@ const ComicPage = (props) => {
 		clearError: clearCommentError,
 		clearCommentList
 	} = useCommentsContext()
-	useEffect(() => {
-		const { comicId } = props.match.params
+	const { comicId } = props.match.params
 
+	useEffect(() => {
 
 		const fetchComic = async () => {
 			const response = await axios(
@@ -51,8 +51,6 @@ const ComicPage = (props) => {
 			setComic(response.data);
 			setComicData(response.data)
 			console.log('comic', response.data)
-
-			// setComics(response.data)
 		}
 		const fetchComments = async () => {
 			const response = await axios(
@@ -64,6 +62,7 @@ const ComicPage = (props) => {
 
 			// setComics(response.data)
 		}
+
 		// const fetchBFComic = async () => {
 		// 	const BFResponse = await axios(
 		// 		`${config.BF_API_ENDPOINT}/schwindt/pisshappens/comics/attachments`
@@ -74,6 +73,26 @@ const ComicPage = (props) => {
 
 		// fetchBFComic()
 	}, []);
+	const postComment = (data) => {
+		const { comic_id, user_id, comment } = data
+		return fetch(`${config.API_ENDPOINT}/comic/comments`, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({
+				comic_id,
+				user_id,
+				comment
+			}),
+		})
+			.then(res =>
+				(!res.ok)
+					? res.json().then(e => Promise.reject(e))
+					: res.json()
+			)
+	}
+
 	const copyUrl = (e) => {
 		e.preventDefault()
 		const copyText = document.querySelector('#copyUrl');
@@ -94,7 +113,7 @@ const ComicPage = (props) => {
 
 	}
 	const renderComments = () => {
-		return comments.map(comment => <p key={comment.id}>{comment.full_name} said: {comment.comment}</p>)
+		return comments.map((comment, i) => <p key={i}>{comment.full_name} said: {comment.comment}</p>)
 	}
 	// const handleChange = event => {
 	// 	const { name, value, type, checked } = event.target;
@@ -105,11 +124,14 @@ const ComicPage = (props) => {
 	const handleSubmit = (ev, text) => {
 		ev.preventDefault();
 		console.log(`form submitted with this data: ${text}`)
+		const madeUpUserId = 1
+		const data = { madeUpUserId, comicId, text }
+		postComment(data)
+		setCommentText('')
 		// GuessesApiService.postGuess(data)
 		// 	.then(this.props.onSubmitSuccess())
 		// 	.catch(this.context.setError);
 	};
-	const { comicId } = props.match.params;
 	const comicUrl = "www.pisshappens.io/#" + props.match.url
 	const { comic_url } = comic
 
