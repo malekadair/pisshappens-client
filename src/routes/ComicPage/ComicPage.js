@@ -125,6 +125,7 @@ const ComicPage = (props) => {
 	const handleSubmit = (ev, text) => {
 		ev.preventDefault();
 		console.log(`form submitted with this data: ${text}`)
+		//this is being used to fake a user's info being provided by context
 		const madeUpUserId = 1
 		const data = { madeUpUserId, comicId, text }
 		postComment(data)
