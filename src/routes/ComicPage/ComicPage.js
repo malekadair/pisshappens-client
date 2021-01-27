@@ -14,7 +14,7 @@ import { useCommentsContext } from '../../contexts/CommentsContext'
 // import WinnersApiService from '../../services/winners-api-service'
 // import WinnersContext from '../../contexts/winnersContext'
 
-// import './ComicPage.css'
+import './ComicPage.css'
 // import Footer from '../../components/Footer/Footer';
 
 const ComicPage = (props) => {
@@ -110,7 +110,7 @@ const ComicPage = (props) => {
 		for (let i = 1; i <= comic.frames; i++) {
 			allFrames.push(`${comic_url}?position=${i}`)
 		}
-		return allFrames.map((frame, i) => <img src={frame} key={i} />)
+		return allFrames.map((frame, i) => <img src={frame} key={i} className="comicFrame" />)
 
 	}
 	const renderComments = () => {
@@ -152,7 +152,9 @@ const ComicPage = (props) => {
 					<p>Description: {comic.description}</p>
 					<p>Added on: {comic.date_created}</p>
 					{/* <p>Comic #{props.comic.id}</p> */}
-					{renderComicFrames()}
+					<div className="comicSection">
+						{renderComicFrames()}
+					</div>
 				</div>
 				{/* <a href={comicUrl} target='_blank'>{comicUrl}</a> */}
 				<CopyUrl copyUrl={copyUrl} comicUrl={comicUrl} />

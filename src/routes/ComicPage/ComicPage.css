@@ -1,0 +1,12 @@
+.comicSection {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: nowrap; */
+  justify-content: center;
+}
+
+.comicFrame {
+  width: 300px;
+  height: 300px;
+  border: 4px solid black;
+}

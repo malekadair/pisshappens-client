@@ -26,6 +26,7 @@ class HomePage extends Component {
 				<Nav />
 				<main>
 					<h2>HomePage</h2>
+					<p>Welcome to PissHappens Comics! Click "See Comics" to check out some of our most recently added comics.</p>
 				</main>
 				<Footer />
 				{/* <header>

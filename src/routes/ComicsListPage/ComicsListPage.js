@@ -11,8 +11,10 @@ import { useComicsContext } from '../../contexts/ComicsContext'
 import ComicsApiService from '../../services/comics-api-service'
 import config from '../../config'
 
+
 const ComicsListPage = (props) => {
 	const [comics, setComics] = useState([]);
+	const [isLoading, setIsloading] = useState(false)
 	const {
 		comicsList,
 		setComicsList,
@@ -24,25 +26,17 @@ const ComicsListPage = (props) => {
 
 	useEffect(() => {
 		const fetchComics = async () => {
+			setIsloading(true)
 			const response = await axios(
 				`${config.API_ENDPOINT}/comics`
 			);
 
 			setComics(response.data);
 			setComicsList(response.data)
+			setIsloading(false)
 		}
 		fetchComics()
 	}, []);
-
-	// useEffect(() => {
-	// 	const fetchComics = async () => {
-	// 		const response = await ComicsApiService.getAllComics()
-
-	// 		setComics(response.data);
-	// 		setComicsList(response.data)
-	// 	}
-	// 	fetchComics()
-	// }, []);
 
 	const renderComics = () => {
 		return comics.map(comic => <Comic key={comic.id} comic={comic} />)
@@ -53,8 +47,7 @@ const ComicsListPage = (props) => {
 			<Nav />
 			<main>
 				<h2>Comics List Page</h2>
-				{renderComics()}
-				{/* {comics.map(comic => { return (<Comic key={comic.id} comic={comic} />) })} */}
+				{isLoading ? 'Loading, please wait...' : renderComics()}
 			</main>
 			<Footer />
 			{/* <header>
@@ -76,6 +69,5 @@ const ComicsListPage = (props) => {
 		</div >
 	)
 }
-
 
 export default ComicsListPage
